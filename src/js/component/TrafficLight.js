@@ -1,15 +1,35 @@
 import React, { useState } from "react";
 
 export function TrafficLight() {
-	const state = "red";
-
+	const [currentLight, setLight] = useState("yellow");
 	return (
-		<div className="trafficLight">
-			<div className="trafficTop" />
-			<div className="trafficBox">
-				<div className="red light" />
-				<div className="yellow light" />
-				<div className="green light" />
+		<div>
+			<div className="trafficTop"> </div>
+			<div className="trafficContainer">
+				{currentLight === "red" ? (
+					<div className="red light expanded" />
+				) : (
+					<div
+						className="red light"
+						onClick={() => setLight("red")}
+					/>
+				)}
+				{currentLight === "yellow" ? (
+					<div className="yellow light expanded" />
+				) : (
+					<div
+						className="yellow light"
+						onClick={() => setLight("yellow")}
+					/>
+				)}
+				{currentLight === "green" ? (
+					<div className="green light expanded" />
+				) : (
+					<div
+						className="green light"
+						onClick={() => setLight("green")}
+					/>
+				)}
 			</div>
 		</div>
 	);
